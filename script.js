@@ -67,7 +67,7 @@ class Universe {
   }
 
   addNewNode(x_ = 0, y_ = 0) {
-    let color = colorGenerator(Math.random() * 255, Math.random() * 255, Math.random() * 255, 0.5);
+    let color = colorGenerator(Math.random() * 255, Math.random() * 255, Math.random() * 255, 0.9);
     let newNode = new Node(x_, y_, color, this);
     this.nodesDom.appendChild(newNode.dom);
     this.nodes.push(newNode)
