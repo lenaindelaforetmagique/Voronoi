@@ -26,21 +26,18 @@ class Universe {
     this.selectedNode = null;
     this.nodes = [];
 
-    // if (localStorage["GraphGameLevelMax"]) {
-    //   this.levelMax = JSON.parse(localStorage["GraphGameLevelMax"]);
-    // }
-
-    // this.viewBox.translate(-this.viewBox.width / 2, -(this.footer.offsetTop + this.header.offsetTop + this.header.offsetHeight) / 2);
-
     this.init();
     this.addEvents();
-
-    // let dx = Math.PI / 25;
-    // let r_ = 250;
-    // for (let i = 0; i < 50; i++) {
-    //   r_ = 250 + Math.random();
-    //   // this.addNewNode(r_ * Math.cos(i * dx), r_ * Math.sin(i * dx));
-    //   this.addNewNode(500, i * dx * 150);
+    // 
+    // let nb = 50;
+    // let dx = Math.PI * 2 / nb;
+    // let r_ = 300;
+    //
+    // for (let i = 0; i < nb; i++) {
+    //
+    //   let r2 = r_ + r_ * Math.cos(i) / 30;
+    //   this.addNewNode(r2 * Math.cos(i * dx), r2 * Math.sin(i * dx));
+    //
     // }
     this.updateDom();
 
@@ -215,6 +212,7 @@ class Universe {
     // OTHER events
     window.onresize = function(e) {
       thiz.viewBox.resize();
+      thiz.updateDom();
     }
 
 
