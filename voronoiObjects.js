@@ -58,7 +58,7 @@ class Node {
       vectOB.sub(ptO);
       insertNewPoint = false;
 
-      if (vectDir.crossProduct(vectOA) > 0) {
+      if (vectDir.crossProduct(vectOA) >= 0) {
         // on garde _i_
         newContour.push(this.contour[i]);
         if (vectDir.crossProduct(vectOB) < 0) {
@@ -67,7 +67,7 @@ class Node {
         }
       } else {
         // on ne garde pas _i_
-        if (vectDir.crossProduct(vectOB) > 0) {
+        if (vectDir.crossProduct(vectOB) >= 0) {
           // insérer nouveau point
           insertNewPoint = true;
         }
