@@ -34,7 +34,18 @@ class Universe {
 
     this.init();
     this.addEvents();
+
+    // let dx = Math.PI / 25;
+    // let r_ = 250;
+    // for (let i = 0; i < 50; i++) {
+    //   r_ = 250 + Math.random();
+    //   // this.addNewNode(r_ * Math.cos(i * dx), r_ * Math.sin(i * dx));
+    //   this.addNewNode(500, i * dx * 150);
+    // }
+    this.updateDom();
+
   }
+
   contour() {
     return this.viewBox.contour;
   }
@@ -53,7 +64,6 @@ class Universe {
 
     this.nodes = [];
     this.selectedNode = null;
-
     this.updateDom();
   }
 
