@@ -110,6 +110,10 @@ ellipse.BoardLimit {
 /* polygon {
   stroke: black;
 } */
+polygon {
+  stroke: black ;
+}
+
 polyline {
   fill: none;
 }

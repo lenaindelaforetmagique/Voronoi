@@ -28,7 +28,7 @@ class Universe {
 
     this.init();
     this.addEvents();
-    // 
+    //
     // let nb = 50;
     // let dx = Math.PI * 2 / nb;
     // let r_ = 300;
@@ -53,6 +53,9 @@ class Universe {
       this.dom.removeChild(this.dom.firstChild);
     }
 
+    this.pictureDom = document.createElementNS(SVGNS, 'image');
+    this.dom.appendChild(this.pictureDom);
+
     this.edgesDom = document.createElementNS(SVGNS, 'g');
     this.dom.appendChild(this.edgesDom);
 
@@ -62,6 +65,14 @@ class Universe {
     this.nodes = [];
     this.selectedNode = null;
     this.updateDom();
+  }
+
+  loadImage(pictureURL) {
+    this.pictureDom.setAttributeNS('http://www.w3.org/1999/xlink', "href", pictureURL);
+    this.pictureDom.setAttributeNS(SVGNS, "x", 100);
+    this.pictureDom.setAttributeNS(SVGNS, "y", 100);
+    this.pictureDom.setAttributeNS(SVGNS, "width", 200);
+    this.pictureDom.setAttributeNS(SVGNS, "height", 100);
   }
 
   refresh() {
@@ -74,7 +85,7 @@ class Universe {
   }
 
   addNewNode(x_ = 0, y_ = 0) {
-    let color = colorGenerator(Math.random() * 255, Math.random() * 255, Math.random() * 255, 0.9);
+    let color = colorGenerator(Math.random() * 255, Math.random() * 255, Math.random() * 255, 0.5);
     let newNode = new Node(x_, y_, color, this);
     this.nodesDom.appendChild(newNode.dom);
     this.nodes.push(newNode)
@@ -297,6 +308,18 @@ class ViewBox {
 }
 
 let u_ = new Universe();
+
+function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      u_.loadImage(e.target.result)
+    };
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
+
 //
 // var updateCB = function(timestamp) {
 //   u_.refresh(timestamp);
